@@ -204,11 +204,12 @@ document.getElementById("camera").addEventListener("click",function () {
         Webcam.attach( '#my_camera' );
         $(".containerr").css("overflow","hidden");
     });
-        function take_snapshot() {
+    container.find('.sircle-empy').click(function () {
         Webcam.snap( function(data_uri) {
-            document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+            document.getElementById('my_camera').innerHTML = '<img src="'+data_uri+'"/>';
         } );
-    }
+    })
+
     $("#xCamera").click(function () {
         var containerrr = $(".containerr .body-camera-container");
         $(".containerr").css("background","black");
@@ -222,7 +223,7 @@ document.getElementById("camera").addEventListener("click",function () {
             width: '10px',
             height: '10px'
         },500,function () {
-debugger
+
             $(".containerr").css("background","");
             containerrr.remove();
 
@@ -248,9 +249,6 @@ debugger
             Webcam.stream.getTracks()[0].stop();
         });
     });
-    // location.reload();
-    //
-
 });
 
 
