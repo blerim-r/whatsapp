@@ -29,6 +29,18 @@ document.getElementById("calls").addEventListener("click",function () {
 
         }
     });
+
+    $(".inp-search").on("keyup", function () {
+        var txt = $(this).val().toLowerCase();
+        $("#body-calls .all-calls .divv-name-calls .name-msg").filter(function () {
+            if ( $(this).text().toLowerCase().indexOf(txt) > -1 ) {
+                $(this).parent().parent().show();
+            } else {
+                $(this).parent().parent().hide();
+            }
+        });
+    });
+
 });
 
 document.getElementById("chats").addEventListener("click" ,function () {
@@ -71,6 +83,17 @@ document.getElementById("chats").addEventListener("click" ,function () {
             $(".chats-mes").show(300);
 
         }
+    });
+
+    $(".inp-search").on("keyup", function () {
+        var txt = $(this).val().toLowerCase();
+        $("#body-chats .all-sms .hold-name-msg .name-msg").filter(function () {
+            if ( $(this).text().toLowerCase().indexOf(txt) > -1 ) {
+                $(this).parent().parent().show();
+            } else {
+                $(this).parent().parent().hide();
+            }
+        });
     });
 
 });
@@ -172,6 +195,17 @@ document.getElementById("status").addEventListener("click",function () {
         }
     });
 
+    $(".inp-search").on("keyup", function () {
+        var txt = $(this).val().toLowerCase();
+        $("#body-status .story-all .divv-name-calls .name-msg").filter(function () {
+            if ( $(this).text().toLowerCase().indexOf(txt) > -1 ) {
+                $(this).parent().parent().show();
+            } else {
+                $(this).parent().parent().hide();
+            }
+        });
+    });
+
 });
 
 document.getElementById("camera").addEventListener("click",function () {
@@ -208,7 +242,7 @@ document.getElementById("camera").addEventListener("click",function () {
         Webcam.snap( function(data_uri) {
             document.getElementById('my_camera').innerHTML = '<img src="'+data_uri+'"/>';
         } );
-    })
+    });
 
     $("#xCamera").click(function () {
         var containerrr = $(".containerr .body-camera-container");

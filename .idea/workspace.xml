@@ -16,14 +16,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wtsp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="251" selection-start-line="251" selection-end-line="251" />
+            <state relative-caret-position="330">
+              <caret line="199" column="61" selection-start-line="199" selection-start-column="61" selection-end-line="199" selection-end-column="61" />
               <folding>
                 <element signature="e#71#955#0" />
-                <element signature="e#1030#2134#0" />
+                <element signature="e#1030#2491#0" />
                 <element signature="e#2210#3208#0" />
-                <element signature="e#3283#5455#0" />
-                <element signature="e#6243#6424#0" />
+                <element signature="e#5530#7670#0" />
               </folding>
             </state>
           </provider>
@@ -122,8 +121,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="81" />
-    <option name="y" value="206" />
+    <option name="x" value="-1" />
     <option name="width" value="1280" />
     <option name="height" value="688" />
   </component>
@@ -150,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Xamp/Hamburger-menu" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -185,7 +183,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162771000" />
+    <option name="totallyTimeSpent" value="166107000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="694" extended-state="6" />
@@ -204,7 +202,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33097345" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33097345" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -270,14 +268,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wtsp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="251" selection-start-line="251" selection-end-line="251" />
+        <state relative-caret-position="330">
+          <caret line="199" column="61" selection-start-line="199" selection-start-column="61" selection-end-line="199" selection-end-column="61" />
           <folding>
             <element signature="e#71#955#0" />
-            <element signature="e#1030#2134#0" />
+            <element signature="e#1030#2491#0" />
             <element signature="e#2210#3208#0" />
-            <element signature="e#3283#5455#0" />
-            <element signature="e#6243#6424#0" />
+            <element signature="e#5530#7670#0" />
           </folding>
         </state>
       </provider>
