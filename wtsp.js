@@ -100,6 +100,12 @@ document.getElementById("status").addEventListener("click",function () {
         });
     });
 
+
+//    funksioni i klikimit te icones se kameres tek statusi
+    $(".aparat-status").click(function () {
+        $("#camera").click();
+    });
+
 });
 
 // cfar ndodh kur klikojm calls
