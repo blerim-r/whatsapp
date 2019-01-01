@@ -880,3 +880,50 @@ color: rgb(51, 122, 183);
     transform: rotate(225deg);
     color: white;
 }
+.headerrr-Inchats {
+    height: 58px;
+    display: flex;
+    background-color: #dadada;
+}
+.iconPreviuos-inChats {
+    width: 33px;
+    cursor: pointer;
+    font-size: 30px;
+    margin: auto;
+    color: rgb(51, 122, 183);
+}
+.hold-photo-mesage-InChats {
+    width: 50px;
+    flex: 1;
+    position: relative;
+}
+.img-msg-inCalls {
+    object-fit: cover;
+    width: 46px;
+    height: 85%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 50%;
+}
+.hold-data_InCalls {
+    flex-flow: column;
+    display: flex;
+    flex: 3;
+    border-bottom: 1px solid #dadada;
+    justify-content: center;
+}
+.txtUnderName-inCalls {
+    color: gray;
+    font-size: 12px;
+}
+.holdVideoCall-inCalls {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: rgb(51, 122, 183);
+}

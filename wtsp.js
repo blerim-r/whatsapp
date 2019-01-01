@@ -1,5 +1,6 @@
+
 // cfar ndodh kur klikojm status
-document.getElementById("status").addEventListener("click",function () {
+    $(".body").on ("click","#status" ,function () {
 
     // shtojm ngjyren blu vetem butonit status dhe ua hecim te gjitheve butonave tjere
     $("#status").children().css("color","#337ab7");
@@ -109,7 +110,7 @@ document.getElementById("status").addEventListener("click",function () {
 });
 
 // cfar ndodh kur klikojm calls
-document.getElementById("calls").addEventListener("click",function (){
+    $(".body").on ("click","#calls" ,function () {
 
     // shtojm ngjyren blu vetem butonit calls dhe ua hecim te gjitheve butonave tjere
     $("#calls").children().css("color","#337ab7");
@@ -244,8 +245,9 @@ document.getElementById("calls").addEventListener("click",function (){
 
 });
 
+
 // cfar ndodh kur klikojm camera
-document.getElementById("camera").addEventListener("click",function () {
+    $(".body").on ("click","#camera" ,function () {
 
     // bejm hide headerin dhe footerin ce tja lem koplet hapsiren vetem cameras
     $(".header").hide();
@@ -335,7 +337,7 @@ document.getElementById("camera").addEventListener("click",function () {
 });
 
 // cfar ndodh kur klikojm chats
-document.getElementById("chats").addEventListener("click" ,function () {
+    $(".body").on ("click","#chats" ,function () {
 
     // shtojm ngjyren blu vetem butonit calls dhe ua hecim te gjitheve butonave tjere
     $("#chats").children().css("color","#337ab7");
@@ -391,10 +393,40 @@ document.getElementById("chats").addEventListener("click" ,function () {
         });
     });
 
+    $(".all-sms").click(function () {
+        // fusim ne header , headerin e ri ce kemi te template ne html (headerin pasi kemi hapur mesazhin)
+        $('.header').html($('#header-inChats').outerHTML());
+        $('.header').find('#header-inChats').show();
+
+        // fusim ne container , containerin e ri te  chats ce e kemi te template ne html (chats pasi kemi hapur mesazhin)
+        $('.containerr').html($('.body-inChats-container').outerHTML());
+        $('.containerr').find('.body-inChats-container').show();
+
+// fusim footerin e ri pasi kemi hapur mesazhin
+        $('.footerr').html($('.footer-inChats').outerHTML());
+        $('.footerr').find('.footer-inChats').show();
+
+        var src = $(this).find(".photo-msg").attr("src");
+        var name = $(this).find(".name-msg").text();
+        var id = $(this).find(".name-msg").attr("id");
+        $(".img-msg-inCalls").attr("src",src);
+        $(".hold-data_InCalls").find(".name-msg").text(name);
+        $(".hold-data_InCalls").find(".name-msg").attr("id",id);
+        $("#backPreveus").click(function () {
+            //pasi klikojme backpreveus marim htmln e footerit ce e kemi te template dhe pasi ta shfaqim klikojme chats per tna shfaqur mesazhet
+
+            $('.footerr').html($('.footer-template').html());
+            $("#chats").click();
+            //ky funksion me posht perdor id e elementit ce kur te shkojm te mesazhet te shfaqemi te po i njejti mesah ce ishim kur klikuam
+            window.location.href = "#" + id
+        });
+    });
+
 });
 
+
 // cfar ndodh kur klikojm setting
-document.getElementById("setting").addEventListener("click",function () {
+    $(".body").on ("click","#setting" ,function () {
 
     // shtojm ngjyren blu vetem butonit setting dhe ua hecim te gjitheve butonave tjere
     $("#chats").children().css("color","");
