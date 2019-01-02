@@ -927,3 +927,31 @@ color: rgb(51, 122, 183);
     justify-content: space-around;
     color: rgb(51, 122, 183);
 }
+.footer-inChats {
+    display: flex;
+    justify-content: space-between;
+    background-color: #dadada;
+    border: 1px solid #cecaca;
+}
+.hold-icons-FooterInChats {
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(51, 122, 183);
+    background-color: #f9f9f9;
+}
+.inputFooter-InChats {
+    border: none;
+    width: 170px;
+}
+.holdInputINchats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e4e2e2;
+    border-radius: 22px;
+    width: 204px;
+    background-color: white;
+}

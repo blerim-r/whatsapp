@@ -412,7 +412,20 @@
         $(".img-msg-inCalls").attr("src",src);
         $(".hold-data_InCalls").find(".name-msg").text(name);
         $(".hold-data_InCalls").find(".name-msg").attr("id",id);
+
+        // $(".txtUnderName-inCalls").animate({
+        // },2000,function () {
+        //     $(".txtUnderName-inCalls").hide(200)
+        // });
+
+        setTimeout(function(){
+            $(".txtUnderName-inCalls").hide("500");
+            }, 2000);
+
         $("#backPreveus").click(function () {
+            $(".containerr").css("flex","12");
+
+
             //pasi klikojme backpreveus marim htmln e footerit ce e kemi te template dhe pasi ta shfaqim klikojme chats per tna shfaqur mesazhet
 
             $('.footerr').html($('.footer-template').html());
@@ -420,6 +433,8 @@
             //ky funksion me posht perdor id e elementit ce kur te shkojm te mesazhet te shfaqemi te po i njejti mesah ce ishim kur klikuam
             window.location.href = "#" + id
         });
+
+        $(".containerr").css("flex","18");
     });
 
 });
