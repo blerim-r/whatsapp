@@ -109,6 +109,7 @@
 
 });
 
+
 // cfar ndodh kur klikojm calls
     $(".body").on ("click","#calls" ,function () {
 
@@ -336,6 +337,7 @@
     });
 });
 
+
 // cfar ndodh kur klikojm chats
     $(".body").on ("click","#chats" ,function () {
 
@@ -394,18 +396,21 @@
     });
 
     $(".all-sms").click(function () {
+
         // fusim ne header , headerin e ri ce kemi te template ne html (headerin pasi kemi hapur mesazhin)
         $('.header').html($('#header-inChats').outerHTML());
         $('.header').find('#header-inChats').show();
 
         // fusim ne container , containerin e ri te  chats ce e kemi te template ne html (chats pasi kemi hapur mesazhin)
-        $('.containerr').html($('.body-inChats-container').outerHTML());
-        $('.containerr').find('.body-inChats-container').show();
+        $('.containerr').html($('.body-InChats').outerHTML());
+        $('.containerr').find('.body-InChats').show();
 
 // fusim footerin e ri pasi kemi hapur mesazhin
         $('.footerr').html($('.footer-inChats').outerHTML());
         $('.footerr').find('.footer-inChats').show();
 
+        //pasi te klikojm mesazhin ne klikim i marim src , emrin , id
+        //id ja marim per arsye sepse kur te klikojm butonin previus i qojm id dhe shfaqemi po te ai meazh jo gjithmon ne fillim
         var src = $(this).find(".photo-msg").attr("src");
         var name = $(this).find(".name-msg").text();
         var id = $(this).find(".name-msg").attr("id");
@@ -413,14 +418,38 @@
         $(".hold-data_InCalls").find(".name-msg").text(name);
         $(".hold-data_InCalls").find(".name-msg").attr("id",id);
 
-        // $(".txtUnderName-inCalls").animate({
-        // },2000,function () {
-        //     $(".txtUnderName-inCalls").hide(200)
-        // });
-
+        // i vendosim nje settime out textit posht emrit ce ta zhdukim pas 2 min
         setTimeout(function(){
             $(".txtUnderName-inCalls").hide("500");
             }, 2000);
+
+        // ky eshte nje variabel global ce e perdorim per tna ruajtur te dhenat e mesazheve ku si key ka Id e mesazhit ce klikojm dhe si value ka nje array me mesazhe
+        var messages = GLOBAL_MESSAGES[$(this).attr("id")];
+        // ketu bredhim arrayn me mesazhe ku per cdo mesazh i marim textin ,time , dhe sender ,pastaj krijojm divin dhe me gjith kto te dhena e shdaqim tek body te vendi mesazheve
+        for (var i  in messages) {
+            var msg = messages[i];
+            var time = msg['timestamp'];
+            var sender =  msg['sender'];
+            var text =  msg['message'];
+            var element = $(".body .holdMessages-inChats");
+            var div = $("<div class='test'></div>");
+            var divMesage = $("<div class='pppp'></div>");
+            var divsms = $("<div style='padding: 10px'></div>");
+            var divTimeTick = $("<div class='data'><div");
+            divTimeTick.text(time);
+            divsms.text(text);
+            divMesage.append(divsms);
+            divMesage.append(divTimeTick);
+            div.append(divMesage);
+            element.append(div);
+            div = element.children().last();
+            // ketu pyesim necoftese sender nuk esht true / ncs esht true nk i ndryshojm asgje /ncs esht false e qojm djathtas sikur na ka ardhur si meazh  jo sikur e kemi derguar dhe e bejm backround te bardhe
+            if (!sender) {
+                debugger
+                div.css("justify-content","end");
+                divMesage.css("background-color","white");
+            }
+        }
 
         $("#backPreveus").click(function () {
             $(".containerr").css("flex","12");
@@ -435,6 +464,54 @@
         });
 
         $(".containerr").css("flex","18");
+
+        // ky funksion pasi te shkruajme vashdon dhe rrit haight e textarea, dhe pasi ta fshijme zvogelohet deri ne 28px
+        $('.body .textareaFooter-InChats').on('input', function () {
+            debugger
+            var el = this;
+            el.style.cssText = 'height:28px; padding:0';
+            if (el.scrollHeight < 100) {
+                el.style.cssText = 'height:' + el.scrollHeight + 'px';
+            } else {
+                el.style.cssText = 'height:100px';
+            }
+        });
+
+        // momenti kur kemi shkruajtur nje mesazh dhe shtypim enter
+        $('.body .textareaFooter-InChats').on("keypress", function(e) {
+            // Catch enter key
+            if (e.keyCode == 13) {
+
+                //ky funksion fshin nje kryeradhe ce ben enter psi te bejm veprimet me poshte
+                e.preventDefault();
+
+                var elemet = $(".body .holdMessages-inChats");
+                var text = $(this).val();
+                var holderDiv = $("<div class='newSMS'></div>");
+                var divMesage = $("<div class='pppp'></div>");
+                var divsms = $("<div class='texti-InChats'></div>");
+                var divTimeTick = $("<div class='time-tick-css'><div");
+
+                //kte img tick e bejm display non ce ta shfaqim me posht me settime out pas 2 min
+                var img = $("<img style='display: none' src='imgs/tick.svg'>");
+                var timeee = moment().format('LT');
+                divTimeTick.append(timeee);
+                divTimeTick.append(img);
+                divsms.text(text);
+                divMesage.append(divTimeTick);
+                divMesage.append(divsms);
+                holderDiv.append(divMesage);
+                elemet.append(holderDiv);
+                $(".body .textareaFooter-InChats").val('');
+
+                setTimeout(function(){
+                    img.show("300");
+                }, 2000);
+                $(".body-InChats").animate({ scrollTop: $(document).height() }, "slow");
+                $(".body .textareaFooter-InChats").css("height","28px");
+            }
+        });
+
     });
 
 });

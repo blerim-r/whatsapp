@@ -941,17 +941,304 @@ color: rgb(51, 122, 183);
     align-items: center;
     color: rgb(51, 122, 183);
     background-color: #f9f9f9;
+    height: 100%;
 }
-.inputFooter-InChats {
-    border: none;
+.textareaFooter-InChats {
     width: 170px;
+    height: 28px;
+    overflow-y: hidden;
+    position: absolute;
+    bottom: -14px;
+    border-radius: 20px;
 }
 .holdInputINchats {
+    align-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #e4e2e2;
-    border-radius: 22px;
     width: 204px;
     background-color: white;
+    position: relative;
 }
+.body-InChats {
+    overflow-x: hidden;
+    overflow: auto;
+    height: 100%;
+    background-image: url("https://i.imgur.com/TnNwdvV.png");
+}
+.holdMessages-inChats {
+    width: 95%;
+    margin: auto;
+}
+.holderDivMesages-InChats {
+    width: 95%;
+    display: flex;
+    margin: 10px auto;
+}
+.mesages-InChats {
+    display: inline-block;
+    border: 1px solid #d8d8d8;
+    background-color: white;
+    border-radius: 6px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    width: auto;
+    max-width: 75%;
+}
+.FlexEnd {
+    justify-content: flex-end;
+}
+.colorGreen {
+    background-color: #e1ffc7;
+    display: flex;
+    position: relative;
+}
+.mesageTEXT-inchats {
+    padding: 7px;
+}
+.holdTime-inChats-Sent {
+    display: flex;
+    align-items: flex-end;
+    font-size: 12px;
+    color: grey;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.tick {
+    display: flex;
+}
+.pading5 {
+    padding: 5px;
+}
+.newSMS {
+    width: 95%;
+    display: flex;
+    margin: 10px auto;
+    justify-content: flex-end;
+    min-height: 40px;
+}
+.pppp {
+    background-color: #e1ffc7;
+    display: flex;
+    position: relative;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    width: auto;
+    max-width: 75%;
+    min-width: 100px;
+}
+.test {
+    width: 95%;
+    display: flex;
+    margin: 10px auto;
+    justify-content: flex-end;
+}
+.data {
+    display: flex;
+    align-items: flex-end;
+    font-size: 10px;
+    color: grey;
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+}
+.time-tick-css {
+    display: flex;
+    align-items: flex-end;
+    font-size: 10px;
+    color: grey;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#msg-input {
+    height: 28px;
+    border-radius: 20px;
+}
+.textareaIconright {
+    position: absolute;
+    right: 25px;
+    bottom: -9px;
+}
+.texti-InChats {
+    padding: 10px;
+    word-break: break-all;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb uhb jbk jlm; k nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mihvc tc yguhb jbkjlm; km;l, ;lmkjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<img alt="tick" src="imgs/tick.svg">-->*/
+/*<!--</span>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb jkhghvg teredct rxctryv ygubhb dxtfcvyg dxcyvghb ytfguyhj iuyghiujn iyghjb  nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mihvc tc yguhb jbkjlm; km;l, c yguhb jbkjlm; km;l, ;lmkj ;lmkjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb  nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, c yguhb jbkjlm; km;l, ;lmkj ',mihvc tc yguhb jbkjlm; km;l, ;lmkjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb  kjnkl kjm lkml ihkj ghtfgh lknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mihvc tc  hiujj iufc tfcxre xre yguhbdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb  nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mkm;l, ;lmkjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb jhvbkn ugfdxds yrd tgfj hoi j  nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mihvc tc yguhb jbkjlm; km;l,c yguhb jbkjlm; km;l, ;lmkj  ;lmkjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb  nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mihv khlk ; '; 'iouygfrdfgy rew ddsw e56 654e df fryu kjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb  nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mihvc tc yguhb jbk jkhjbklm hgfd c d tyu uytr dc ftyj  ;lmkjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+
+/*<!--<div class="holderDivMesages-InChats">-->*/
+/*<!--<div class="mesages-InChats">-->*/
+/*<!--<div class="pading5"> fsdkhjb  nlknnkn  kn lkn lkn </div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--<div class="holderDivMesages-InChats FlexEnd">-->*/
+/*<!--<div class="mesages-InChats colorGreen">-->*/
+/*<!--<div class="mesageTEXT-inchats">lkm, ',mihvc tcoiu ghji uyfdg uikl kl jgflmkjbh  nouiycdtryf ghn;l m ougf uhj mmjhj</div>-->*/
+/*<!--<div class="holdTime-inChats-Sent">-->*/
+/*<!--<span>Time</span>-->*/
+/*<!--<span class="tick">-->*/
+/*<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"></path></svg>-->*/
+/*<!--</span>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/
+/*<!--</div>-->*/

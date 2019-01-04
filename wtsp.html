@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="wtsp.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
-
+    <script src="node_modules/moment/min/moment.min.js" ></script>
     <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -49,7 +49,7 @@
         <!-- BODY -->
     <div class="body-chats-container" style="display: none">
         <div id="body-chats">
-            <div class="all-sms">
+            <div id="bilbil" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://www.istockphoto.com/resources/images/PhotoFTLP/img_63351521.jpg"></div>
                 <div class="hold-name-msg">
                     <span id="Bilbil" class="name-msg">Bilbil</span>
@@ -60,7 +60,7 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="sabri" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="http://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"></div>
                 <div class="hold-name-msg">
                     <span id="Sabri" class="name-msg">Sabri</span>
@@ -72,7 +72,7 @@
                 </div>
 
             </div>
-            <div class="all-sms">
+            <div id="ardit" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg"></div>
                 <div class="hold-name-msg">
                     <span id="Ardit" class="name-msg">Ardit</span>
@@ -83,7 +83,7 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="toni" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://ak4.picdn.net/shutterstock/videos/20197684/thumb/1.jpg?i10c=img.resize(height:160)"></div>
                 <div class="hold-name-msg">
                     <span id="Toni" class="name-msg">Toni</span>
@@ -94,7 +94,7 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="numer" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="http://taguephoto.com/wp-content/uploads/2016/01/Ruffwear_Man_and_Dog_Sunset.jpg"></div>
                 <div class="hold-name-msg">
                     <span id="nr" class="name-msg">+355698682009</span>
@@ -105,7 +105,7 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="florMhilli" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"></div>
                 <div class="hold-name-msg">
                     <span id="FlorMhilli" class="name-msg">Flor Mhilli</span>
@@ -116,7 +116,7 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="renoWtsp" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOY5xUgJ92IpjvOzlR3k2Z7RKuD5bWd0anPVvb_2uEty_SgCjV"></div>
                 <div class="hold-name-msg">
                     <span id="RenoWtsp" class="name-msg">Reno Wtsp</span>
@@ -127,7 +127,7 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="jurgeni" class="all-sms">
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://www.newyorkcomputerhelp.com/wp-content/uploads/2017/04/best-way-to-protect-computer-hacker.jpg"></div>
                 <div class="hold-name-msg">
                     <span id="Jurgeni" class="name-msg">Jurgeni</span>
@@ -160,22 +160,25 @@
                 </div>
             </div>
         </div>
-
     <!--Body-->
-        <div class="body-InChats">
+        <div class="body-InChats" style="display: none">
+            <div class="holdMessages-inChats">
 
+            </div>
         </div>
-
     <!--footer-->
         <div class="footer-inChats" style="display: none ; flex: 1">
             <div class="hold-icons-FooterInChats">
-                <span class="glyphicon glyphicon-plus"></span>
-                <div class="holdInputINchats">
-                    <input class="inputFooter-InChats" type="text">
-                    <i class="far fa-sticky-note"></i>
+                <div class="hold-icons-FooterInChats">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <div class="holdInputINchats">
+                        <textarea class="textareaFooter-InChats" type="text"></textarea>
+                        <i class="far fa-sticky-note textareaIconright"></i>
+                    </div>
+                    <i class="fas fa-camera"></i>
+                    <i class="fas fa-microphone"></i>
+                    <span style="display: none" class="glyphicon glyphicon-plus"></span>
                 </div>
-                <i class="fas fa-camera"></i>
-                <i class="fas fa-microphone"></i>
             </div>
         </div>
 
@@ -699,7 +702,7 @@
     </div>
 
 
-
+    <script src="messages.js"></script>
     <script src="webcam.js"></script>
     <script src="wtsp.js"></script>
 </body>
