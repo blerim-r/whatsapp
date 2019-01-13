@@ -20,7 +20,6 @@
 
 // funksioni ce zmadhon foton e storyt tek sort
     $(".photo-story").click(function () {
-        debugger
         $(this).parent().css("background","grey");
         var src = $(this).attr("src");
         var element = $(".body");
@@ -238,7 +237,7 @@
 
 
         $("#callEnd").click(function () {
-            debugger
+
             $(".inCallsDiv").remove();
         });
     });
@@ -395,8 +394,9 @@
         });
     });
 
-    $(".all-sms").click(function () {
 
+    // momenti kur hapim mesazhet e njerit nga contaktet
+    $(".all-sms").click(function () {
         // fusim ne header , headerin e ri ce kemi te template ne html (headerin pasi kemi hapur mesazhin)
         $('.header').html($('#header-inChats').outerHTML());
         $('.header').find('#header-inChats').show();
@@ -420,8 +420,9 @@
 
         // i vendosim nje settime out textit posht emrit ce ta zhdukim pas 2 min
         setTimeout(function(){
-            $(".txtUnderName-inCalls").hide("500");
+            $(".body .txtUnderName-inCalls").hide("500");
             }, 2000);
+
 
         // ky eshte nje variabel global ce e perdorim per tna ruajtur te dhenat e mesazheve ku si key ka Id e mesazhit ce klikojm dhe si value ka nje array me mesazhe
         var messages = GLOBAL_MESSAGES[$(this).attr("id")];
@@ -445,15 +446,17 @@
             div = element.children().last();
             // ketu pyesim necoftese sender nuk esht true / ncs esht true nk i ndryshojm asgje /ncs esht false e qojm djathtas sikur na ka ardhur si meazh  jo sikur e kemi derguar dhe e bejm backround te bardhe
             if (!sender) {
-                debugger
                 div.css("justify-content","end");
                 divMesage.css("background-color","white");
             }
         }
 
+        //butoni lart djathtas ce nga kthen nje hap mbrapa tek chats
         $("#backPreveus").click(function () {
             $(".containerr").css("flex","12");
 
+                // e shfaqim perseri textin posht emrit pasi ne clikim te mesazheve e bejm hide me settimeout
+                $(".body .txtUnderName-inCalls").show();
 
             //pasi klikojme backpreveus marim htmln e footerit ce e kemi te template dhe pasi ta shfaqim klikojme chats per tna shfaqur mesazhet
 
@@ -465,56 +468,118 @@
 
         $(".containerr").css("flex","18");
 
+
         // ky funksion pasi te shkruajme vashdon dhe rrit haight e textarea, dhe pasi ta fshijme zvogelohet deri ne 28px
         $('.body .textareaFooter-InChats').on('input', function () {
-            debugger
-            var el = this;
-            el.style.cssText = 'height:28px; padding:0';
-            if (el.scrollHeight < 100) {
-                el.style.cssText = 'height:' + el.scrollHeight + 'px';
+            var el = $(this);
+            if(el.val() !== "") {
+
+                //ncs kemi futur text i bejm hide ca ikona dhe nxierrim ate ce drg mesazh dhe zgjerojm texarean (rrisim widthin)
+                $(".textareaIconright").css("display","none");
+                $(".camera-inchatcs").css("display","none");
+                $(".mikrofon-inchats").css("display","none");
+                $(".send-msg-inChats").css("display","");
+                $(this).css("width","250px");
+            }
+            //ktu ndodh e kunderta e asaj me siper
+            if(el.val() === ""){
+                $(".textareaIconright").css("display","");
+                $(".camera-inchatcs").css("display","");
+                $(".mikrofon-inchats").css("display","");
+                $(".send-msg-inChats").css("display","none");
+                $(this).css("width","");
+            }
+            $(this).css("height","28px");
+            $(this).css("padding","0");
+            if (el[0].scrollHeight < 100) {
+                el.css("height",+ el[0].scrollHeight + 'px');
             } else {
-                el.style.cssText = 'height:100px';
+                el.css("height","100px");
             }
         });
 
+
+        //    ky esht funksioni i butonit send ne te djath te textareas dhe dergon mesazhin ncs e klikojm
+        $(".send-msg-inChats").click(function () {
+            sendMessage();
+        });
         // momenti kur kemi shkruajtur nje mesazh dhe shtypim enter
         $('.body .textareaFooter-InChats').on("keypress", function(e) {
             // Catch enter key
             if (e.keyCode == 13) {
-
-                //ky funksion fshin nje kryeradhe ce ben enter psi te bejm veprimet me poshte
                 e.preventDefault();
-
-                var elemet = $(".body .holdMessages-inChats");
-                var text = $(this).val();
-                var holderDiv = $("<div class='newSMS'></div>");
-                var divMesage = $("<div class='pppp'></div>");
-                var divsms = $("<div class='texti-InChats'></div>");
-                var divTimeTick = $("<div class='time-tick-css'><div");
-
-                //kte img tick e bejm display non ce ta shfaqim me posht me settime out pas 2 min
-                var img = $("<img style='display: none' src='imgs/tick.svg'>");
-                var timeee = moment().format('LT');
-                divTimeTick.append(timeee);
-                divTimeTick.append(img);
-                divsms.text(text);
-                divMesage.append(divTimeTick);
-                divMesage.append(divsms);
-                holderDiv.append(divMesage);
-                elemet.append(holderDiv);
-                $(".body .textareaFooter-InChats").val('');
-
-                setTimeout(function(){
-                    img.show("300");
-                }, 2000);
-                $(".body-InChats").animate({ scrollTop: $(document).height() }, "slow");
-                $(".body .textareaFooter-InChats").css("height","28px");
+                sendMessage();
             }
         });
 
+
+        // momenti kur shtypim butonin call aty lart dhe shfaqim kte divin posht
+        $("#callInSms").click(function () {
+            $(this).parent().parent().find(".hold-photo-mesage-InChats").click();
+        });
+        // ky e shfaq divin
+        $(".hold-photo-mesage-InChats").click(function () {
+            var element = $(".body");
+            var src = $(this).children().attr('src');
+            var div = $("<div style='display: none' class='inCallsDiv'></div>");
+            var name = $(this).parent().parent().find(".name-msg").text();
+            $(".image-InCalls").attr("src",src);
+            $("#name-InCalls").text(name);
+            element.append(div);
+            div.append($("#afterCalls").outerHTML());
+            div.find("#afterCalls").show();
+            div.show();
+
+            $("#callEnd").click(function () {
+                debugger
+                $(".inCallsDiv").remove();
+            });
+        });
+        // kte duhet ta perfundoj
+        // momenti kur klikojm kameran kur jemi ne bisede
+        // $("#cameraInchats").click(function () {
+        //
+        // });
     });
 
 });
+
+// momenti kur kemi shkruajtur nje mesazh dhe shtypim enter
+function sendMessage() {
+        // shfaqim ca ikona dhe fshehim iconen ce dergon mesazhe
+        $(".textareaIconright").css("display","");
+        $(".camera-inchatcs").css("display","");
+        $(".mikrofon-inchats").css("display","");
+        $(".send-msg-inChats").css("display","none");
+        $(".body .textareaFooter-InChats").css("width","");
+
+
+        //ky funksion fshin nje kryeradhe ce ben enter pasi te bejm veprimet me poshte
+        var elemet = $(".body .holdMessages-inChats");
+        var text = $('.body .textareaFooter-InChats').val();
+        var holderDiv = $("<div class='newSMS'></div>");
+        var divMesage = $("<div class='pppp'></div>");
+        var divsms = $("<div class='texti-InChats'></div>");
+        var divTimeTick = $("<div class='time-tick-css'><div");
+
+        //kte img tick e bejm display non ce ta shfaqim me posht me settime out pas 2 min
+        var img = $("<img style='display: none' src='imgs/tick.svg'>");
+        var timeee = moment().format('LT');
+        divTimeTick.append(timeee);
+        divTimeTick.append(img);
+        divsms.text(text);
+        divMesage.append(divTimeTick);
+        divMesage.append(divsms);
+        holderDiv.append(divMesage);
+        elemet.append(holderDiv);
+        $(".body .textareaFooter-InChats").val('');
+
+        setTimeout(function(){
+            img.show("300");
+        }, 2000);
+        $(".body-InChats").animate({ scrollTop: $(document).height() }, "slow");
+        $(".body .textareaFooter-InChats").css("height","28px");
+    }
 
 
 // cfar ndodh kur klikojm setting
