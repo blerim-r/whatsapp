@@ -207,7 +207,10 @@
         <div class="tame-grey"></div>
         <div class="hold-pht-seting">
             <div class="div-pht-seting">
-                <img class="img-seting" src="https://scontent.ftia3-1.fna.fbcdn.net/v/t1.0-9/12009789_866775886740838_1865695940545155546_n.jpg?_nc_cat=101&_nc_ht=scontent.ftia3-1.fna&oh=dea3087064fd5d028f01d6e68fe9c00e&oe=5C98101C">
+                <img  onclick="document.getElementById('file-photo').click()"  class="img-seting" id="profImage" src="https://scontent.ftia3-1.fna.fbcdn.net/v/t1.0-9/12009789_866775886740838_1865695940545155546_n.jpg?_nc_cat=101&_nc_ht=scontent.ftia3-1.fna&oh=dea3087064fd5d028f01d6e68fe9c00e&oe=5C98101C">
+            </div>
+            <div class="div-input">
+                <input class="input-file-setting" onchange="renderImage(this.files[0])" type="file" id="file-photo" accept="image/*">
             </div>
             <div class="sts-seting">
                 <div style="color: black">.</div>

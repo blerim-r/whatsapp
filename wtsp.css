@@ -226,6 +226,7 @@ html , body {
 }
 .img-seting {
     height: 80%;
+    width: 80%;
     margin: auto;
     border-radius: 50%;
 }
@@ -342,7 +343,7 @@ html , body {
     cursor: pointer;
 }
 .edit-calls {
-color: rgb(51, 122, 183);
+    color: rgb(51, 122, 183);
 }
 .coll-right-top {
     color: rgb(51, 122, 183);
@@ -488,6 +489,7 @@ color: rgb(51, 122, 183);
 .pen-status {
     color: rgb(51, 122, 183);
     font-size: 17px;
+    cursor: pointer;
 }
 .txt-myStatus {
     color: black;
@@ -1085,6 +1087,65 @@ color: rgb(51, 122, 183);
 #callInSms {
     cursor: pointer;
 }
+.input-file-setting {
+    visibility: hidden;
+    width: 1px;
+}
+.containerText {
+    position: absolute;
+    width: 320px;
+    height: 460px;
+    background-color: #ea5174;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.x-pen-container {
+    position: absolute;
+    top: 5px;
+    z-index: 999;
+    font-size: x-large;
+    left: 6px;
+    color: white;
+    cursor: pointer;
+}
+.T-pen-container {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    font-size: 32px;
+    right: 6px;
+    color: white;
+    cursor: pointer;
+}
+.container-textarea {
+    position: absolute;
+    top: 48%;
+    width: 100%;
+    border: none;
+    height: 50px;
+    background-color: transparent;
+    text-align: center;
+    font-size: xx-large;
+    overflow: hidden;
+    color: #9c9b9b;
+}
+.spn-btn-pen {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background-color: rgb(51, 122, 183);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+}
+
+
 /*<!--<div class="holderDivMesages-InChats">-->*/
 /*<!--<div class="mesages-InChats">-->*/
 /*<!--<div class="pading5"> fsdkhjb uhb jbk jlm; k nlknnkn  kn lkn lkn </div>-->*/

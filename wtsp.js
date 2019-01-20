@@ -105,6 +105,55 @@
     $(".aparat-status").click(function () {
         $("#camera").click();
     });
+    $(".pen-status").click(function () {
+        var element = $(".body");
+        var container = $("<div class='containerText'><span class='x-pen-container'>X</span><span class='T-pen-container'>T</span></div>");
+        var textArea = $("<textarea class='container-textarea'>Type a status</textarea>");
+        var sendbtn = $("<span style=\"display: none\" class=\"spn-btn-pen\"><img src=\"imgs/send-button.svg\" class=\"sendIt-inChats\"></span>");
+        container.append(sendbtn);
+        container.append(textArea);
+        element.append(container);
+
+        $(".x-pen-container").click(function () {
+            $(container).remove();
+        });
+
+        $(".container-textarea").click(function () {
+            $(".container-textarea").text("");
+            $(".container-textarea").focus();
+        });
+        
+        // ky funksion pasi te shkruajme vashdon dhe rrit haight e textarea, dhe pasi ta fshijme zvogelohet deri ne 28px
+        $(textArea).on('input', function () {
+            $(".container-textarea").css("color","white");
+            var el = $(this);
+            $(this).css("height","50px");
+            $(this).css("padding","0");
+            $(this).css("top","48%");
+
+            if (el[0].scrollHeight < 100) {
+                el.css("height",+ el[0].scrollHeight + 'px');
+            } else {
+                el.css("height","135px");
+                el.css("top","35%");
+            }
+            if ($(".container-textarea").val() === ""){
+                debugger
+                $(sendbtn).css("display","none");
+            }
+
+            if ($(".container-textarea").val() !== ""){
+                debugger
+                $(sendbtn).css("display","");
+            }
+
+
+            // if (el.val() === ""){
+            //     $(".container-textarea").val("Type a status");
+            // }
+        });
+        
+    });
 
 });
 
@@ -621,7 +670,23 @@ function sendMessage() {
     });
 });
 
-
+// ky funksion nderron foton e profilit te setting
+function renderImage(file) {
+    debugger
+    if (typeof file === 'undefined') {
+        alert("ju nuk zgjodhet asnje file");
+        return;
+    }
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (event) {
+        the_url = event.target.result;
+        // var image = document.getElementById('profImage');
+        // image.src =  the_url;
+        var image = $("#profImage");
+        image.attr("src",the_url);
+    }
+}
 
 // ky funksion kthen si string te gjith html e elementit ce dum duke perfshire dhe veten
 jQuery.fn.outerHTML = function() {
