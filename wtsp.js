@@ -1,4 +1,50 @@
 
+// $(".span-edit").click(function () {
+//     debugger;
+//     $(this).children().css("color"," #337ab7");
+//     $(this).parent().css("background","#d4ddde");
+//     $(" #header-chats .chat").css("display","none!important");
+//     $(".archiveSpas").css("color","#337ab7");
+//     $(".deleteSpan").css("color","#337ab7");
+//     $(".readAll-spn").css("display","none");
+//     $(".readspn").css("display","");
+//
+//     $(".chats-mes").css("display","none!important");
+//     $(".chats-inEdit").css("display","");
+//     $(".chats-mes-inEdit").css("display","");
+//
+//
+//     // // kontrollojme nese jemi ne top dhe te shfaqim serchin dhe chat
+//     // var dc =  $("div.body-chats-container");
+//     // dc.scroll(function() {
+//     //     var pos = dc.scrollTop();
+//     //     if (pos == 0) {
+//     //         $(".chat").css("display","none");
+//     //         $(".chats-mes").css("display","none!importanet");
+//     //         $(".chats-inEdit").show(300);
+//     //         // $(".div-inp").show(300);
+//     //         $(".chats-inEdit").show(300);
+//     //         $(".chats-mes-inEdit").hide(300);
+//     //     }
+//     // });
+//     //
+//     // dc.scroll(function() {
+//     //     var pos = dc.scrollTop();
+//     //     if (pos != 0) {
+//     //         $(".chats-inEdit").hide(300);
+//     //         // $(".div-inp").hide(300);
+//     //         $(".chats-inEdit").hide(300);
+//     //         $(".chats-mes-inEdit").show(300);
+//     //         $(".chat").css("display","none");
+//     //         $(".chats-mes").css("display","none!importanet");
+//     //     }
+//     // });
+//
+//
+// });
+
+
+
 // cfar ndodh kur klikojm status
     $(".body").on ("click","#status" ,function () {
 
@@ -105,6 +151,8 @@
     $(".aparat-status").click(function () {
         $("#camera").click();
     });
+
+    // funksioni i klikimit te pen tek statusi
     $(".pen-status").click(function () {
         var element = $(".body");
         var container = $("<div class='containerText'><span class='x-pen-container'>X</span><span class='T-pen-container'>T</span></div>");
@@ -123,7 +171,7 @@
             $(".container-textarea").focus();
         });
         
-        // ky funksion pasi te shkruajme vashdon dhe rrit haight e textarea, dhe pasi ta fshijme zvogelohet deri ne 28px
+        // ky funksion pasi te shkruajme vashdon dhe rrit haight e textarea, dhe pasi ta fshijme zvogelohet deri ne 50px
         $(textArea).on('input', function () {
             $(".container-textarea").css("color","white");
             var el = $(this);
@@ -385,6 +433,8 @@
     });
 });
 
+//    ky esht nje variabel global ce e perdorim kur duam te selektojm dhe te fshijm e mesazhet
+var nurmi = 0;
 
 // cfar ndodh kur klikojm chats
     $(".body").on ("click","#chats" ,function () {
@@ -410,7 +460,12 @@
 
     //k kontrollojme nese jemi ne top dhe te shfaqim serchin dhe chat
     var dc =  $("div.body-chats-container");
-    dc.scroll(function() {
+    dc.scroll(function(e) {
+        debugger
+        if ($(".body #header-chats .edit-icon .edit").is(":hidden")){
+            e.preventDefault();
+            return;
+        }
         var pos = dc.scrollTop();
         if (pos == 0) {
             $(".chat").show(300);
@@ -420,14 +475,18 @@
         }
     });
 
-    dc.scroll(function() {
+    dc.scroll(function(e) {
+        debugger
+        if ($(".body #header-chats .edit-icon .edit").is(":hidden")){
+            e.preventDefault();
+            return;
+        }
         var pos = dc.scrollTop();
         if (pos != 0) {
             $(".chat").hide(300);
             $(".div-inp").hide(300);
             $(".chat").hide(300);
             $(".chats-mes").show(300);
-
         }
     });
 
@@ -445,7 +504,14 @@
 
 
     // momenti kur hapim mesazhet e njerit nga contaktet
-    $(".all-sms").click(function () {
+    $(".all-sms").click(function (e) {
+
+        // kontrollojme nese e kemi nje span tick show dhe nk futem ketu
+        if (!$($(this).find(".span-edit")).is(":hidden")){
+            e.preventDefault();
+            return;
+        }
+
         // fusim ne header , headerin e ri ce kemi te template ne html (headerin pasi kemi hapur mesazhin)
         $('.header').html($('#header-inChats').outerHTML());
         $('.header').find('#header-inChats').show();
@@ -454,7 +520,7 @@
         $('.containerr').html($('.body-InChats').outerHTML());
         $('.containerr').find('.body-InChats').show();
 
-// fusim footerin e ri pasi kemi hapur mesazhin
+        // fusim footerin e ri pasi kemi hapur mesazhin
         $('.footerr').html($('.footer-inChats').outerHTML());
         $('.footerr').find('.footer-inChats').show();
 
@@ -590,6 +656,207 @@
         //
         // });
     });
+
+//    momenti kur klikojm ikonen edit lart ne header
+        // bejm kte icone none dhe shfaqim iconen tj done ce pasi ta shtypim ate te mund ta shfaqim perseri kte icone edit
+        // shfacim dhe nje footer te ri me ca butona ne te dhe shfaqim dhe nje icone tick ce behet blu kur te klikojme cdo mesazh,ajo shfaqetanash mesazhit ne fillim
+
+        $(".edit").click(function () {
+
+                $(this).css("display","none");
+                $(".done-chats").css("display","");
+                $(".span-edit").css("display","");
+                $(".icon").css("display","none");
+                $(".body .chats-mes").css("margin-right","126px");
+                var element = $(".body");
+                var newfooter = $("<div class='newfooter-edit'></div>");
+                var spnArchive = $("<span class='archiveSpas'>Archive</span>");
+                var spnReadAll = $("<span class='readAll-spn'>Read All</span>");
+                var spnRead = $("<span style='display: none' class='readspn'>Read</span>");
+                var spnDelete = $("<span class='deleteSpan'>Delete</span>");
+                newfooter.append(spnArchive);
+                newfooter.append(spnReadAll);
+                newfooter.append(spnRead);
+                newfooter.append(spnDelete);
+                $(".footerr").css("display","none");
+                element.append(newfooter);
+
+            $(".all-sms").click(function (e) {
+                // kontrollojme nese e kemi nje span tick show dhe nese nk e kemi  nk futem ketu
+                if ($($(this).find(".span-edit")).is(":hidden")){
+                    e.preventDefault();
+                    return;
+                }
+                    // kontrollojme nese kemi shenjen tick blu anash emrit te mesazhit dhe nese esht futemi
+                if ($(this).find(".span-edit").children().hasClass("colorBlu")) {
+
+                        // kur futemi ktu i bie ce e kemi kliku me pare kte mesazh dhe tani po e klikojm prap dhe i hecim ngjyren  blu spanit te tick dhe backgroundin mesazhit te klikuar
+                        $(this).removeClass("bck-sms");
+                        $(this).find(".span-edit").children().removeClass("colorBlu");
+                        $(".archiveSpas").css("color","");
+                        $(".deleteSpan").css("color","");
+                        $(".readAll-spn").css("display","");
+                        $(".readspn").css("display","none");
+                        // ky esht variabli ce kemi deklaruar global ce na tregon sa her kemi klikuar nje mesazh dhe ketu po e ulim me nji pasi po i hecim ne klikim ngjyren spanit tick dhe backgroundin mesazhit te klikuar me pare (ncs e klikojm perseri me posht e rrisim me nji pasi bejm blu spanin e tick dhe i shtojm backgroundin mesazhit te klikuar)
+                        nurmi -- ;
+
+                        $(".chats-inEdit .count").text(nurmi);
+                        $(".chats-mes-inEdit .count").text(nurmi);
+
+                        // kontrollojme nese kemi me shum se nje element te selektuar dhe e bejm nr shumes chats dhe e kunderta
+                        if (nurmi == 1) {
+                            $(".selected").text("chat selected")
+                        } else {
+                            $(".selected").text("chats selected")
+
+                        }
+
+                    } else {
+                        debugger;
+                        // ktu i bje ce esht ngjyre e bardhe dhe futemi e bejm blu dhe rrisim numrin
+
+                        //e kunderta e asaj me siper rrisim nr dhe ju shtojm backgroundin mesazhit dhe spanit tick colorin blu
+                        $(this).find(".span-edit").children().addClass("colorBlu");
+                        $(this).addClass("bck-sms");
+                        $(".body #header-chats .chat").css("display","none");
+                        $(".archiveSpas").css("color","#337ab7");
+                        $(".deleteSpan").css("color","#337ab7");
+                        $(".readAll-spn").css("display","none");
+                        $(".readspn").css("display","");
+                        $(".body .chats-mes").css("display","none");
+                        // $(".body .chats-inEdit").css("display","");
+                        // $(".body .chats-mes-inEdit").css("display","");
+                        nurmi ++ ;
+                        $(".chats-inEdit .count").text(nurmi);
+                        $(".chats-mes-inEdit .count").text(nurmi);
+
+                        // kontrollojme nese kemi me shum se nje element te selektuar dhe e bejm nr shumes chats dhe e kunderta
+                        if (nurmi == 1) {
+                            $(".selected").text("chat selected")
+                        } else {
+                            $(".selected").text("chats selected")
+
+                        }
+                    }
+                if  (nurmi != "0"){
+                    // i bie ce kemi mesazhe te selectuara
+                    // ncs futemi ketu i bje ce kemi mesazhe te selektuara dhe bejm ca butona n footer me color blue dhe bejm funksional dhe butonin delete
+                    $(".archiveSpas").css("color","#337ab7");
+                    $(".deleteSpan").css("color","#337ab7");
+                    $(".readAll-spn").css("display","none");
+                    $(".readspn").css("display","");
+
+
+
+                    // i bejm of click pasi edhe pse nuk futet te funksioni meposhti ai e mer eventin dhe na rrit numrin ne cdo klikim te njerit nga mesazhet
+                    $(".deleteSpan").off('click');
+
+                    // kur futemi ktu krijojme nje div me position absolut ce mban 3 butona (delete,archive,cancel)
+                    $(".deleteSpan").click(function () {
+
+                        var element = $(".body");
+                        var divContainerDelete = $("<div class='divContainerDelete'><div class='holdElemnt-select'><div class='hold-dlt-Archive'><div class='deleteSelect'><span>Delete</span><span class='nrdlt'>1</span><span>Chat</span></div><div class='ArchiveDlt'>Archive</div></div><div class='Cansel-select'>Cansel</div></div></div>");
+                        element.append(divContainerDelete);
+                        $(".nrdlt").text(nurmi);
+
+                        // ketu fshijme divin ce krijuam me lart me position absolut
+                        $(".Cansel-select").click(function () {
+                            $(divContainerDelete).remove();
+                        });
+                        // ketu kapim me kte funksionin me poshte te gjithe mesazhet e selektuara dhe i fshijme , me pas fshijme dhe vete divin ce mbante kte butonin delete
+                        $(".deleteSelect").click(function () {
+                            $(".bck-sms").each(function (key,element) {
+                                debugger
+                                $(element).remove();
+                            });
+                            $(divContainerDelete).remove();
+                            $(".chats-inEdit").css("display","none");
+                            $(".chats-mes-inEdit").css("display","none");
+                            $(".done-chats").click();
+                        });
+                    });
+
+                }
+                // kur nr e kemi 0 i bie ce nk kemi mesazhe te selektuara
+                if (nurmi == "0") {
+                    $(".body .chats-inEdit").css("display","none");
+                    $(".body .chats-mes-inEdit").css("display","none");
+                    $(".body .chat").css("display","");
+                    $(".body .chats-mes").css("display","");
+                } else {
+                    if ($(".body #header-chats .div-inp").is(":hidden")) {
+                        $(".body .chats-mes-inEdit").css("display","flex");
+                    } else {
+                        $(".body .chats-inEdit").css("display","");
+                    }
+                }
+
+            });
+
+            // kontrollojme nese jemi ne top dhe te shfaqim serchin dhe chat anash dhe fshehim ate lart ne mes
+                  var dc =  $("div.body-chats-container");
+                  dc.scroll(function() {
+                      var pos = dc.scrollTop();
+                      if (pos == 0) {
+                          $(".div-inp").show(300);
+                          if (nurmi == "0") {
+                              $(".body .chats-inEdit").css("display","none");
+                              $(".body .chats-mes-inEdit").css("display","none");
+                              $(".body .chat").show(300);
+                              $(".body .chats-mes").hide(300);
+                          } else {
+                              $(".body .chat").css("display","none");
+                              $(".body .chats-mes").css("display","none");
+                              $(".body .chats-inEdit").show(300);
+                              $(".body.chats-inEdit").show(300);
+                              $(".body .chats-mes-inEdit").hide(300);
+                          }
+                      }
+                  });
+
+                  // kontrollojme nese nk jemi ne top dhe fshehim searchin edhe chats anash dhe shfaqim chats lart ne mes
+                  dc.scroll(function() {
+                      var pos = dc.scrollTop();
+                      if (pos != 0) {
+                          $(".div-inp").css("display","none");
+                          if (nurmi == "0") {
+                              $(".body .chats-inEdit").css("display","none");
+                              $(".body .chats-mes-inEdit").css("display","none");
+                              $(".body .chat").hide(300);
+                              $(".body .chats-mes").show();
+                          } else {
+                              $(".body .chats-inEdit").hide(300);
+                              $(".body .chats-inEdit").hide(300);
+                              $(".body .chats-mes-inEdit").show(300);
+                              $(".body .chat").css("display","none");
+                              $(".body .chats-mes").css("display","none");
+                          }
+                      }
+                  });
+        });
+
+        // ky funksion na kthen edhe njeher ashtu sikur ishim ,ncs kemi fshire mesazhet edhe pasi klikojm kte buton akm i kemi te fshira
+        $(".done-chats").click(function () {
+            debugger
+            $(".span-edit").parent().removeClass("bck-sms");
+            $(".span-edit").children().removeClass("colorBlu");
+            $(".newfooter-edit").remove();
+            $(".footerr").css("display","");
+            $(".done-chats").css("display","none");
+            $(".edit").css("display","");
+            $(".span-edit").css("display","none");
+            $(".icon").css("display","");
+            $(".body .chats-mes").css("margin-right","0");
+            $(".body .chats-mes").css("display","");
+            $(".body .chat").css("display","");
+            $(".body .chats-inEdit").css("display","none");
+            $(".body .chats-mes-inEdit").css("display","none");
+
+            nurmi = 0;
+            $(".chats-inEdit .count").text(nurmi);
+            $(".chats-mes-inEdit .count").text(nurmi);
+            $("#chats").click();
+        });
 
 });
 

@@ -63,7 +63,9 @@ html , body {
 .edit{
     color: #337ab7;
     cursor: pointer;
-    font-size: x-large;
+    padding-left: 9px;
+    font-size: 19px;
+    padding-top: 2px;
 
 }
 .icon {
@@ -75,10 +77,16 @@ html , body {
 .inp-search {
     background-color: #c1c1c1!important;
     border: 1px solid #dadada!important;
-    border-radius: 5%!important;
+    border-radius: 10px!important;
+}
+.pading-5px {
+    padding: 5px;
+    font-size: 19px;
 }
 .chat {
-    font-size: xx-large;
+    font-size: 30px;
+    padding-left: 9px;
+    font-weight: bold;
 }
 .div-inp {
     width: 93%;
@@ -203,6 +211,8 @@ html , body {
     display: none;
     flex-flow: column;
     justify-content: flex-end;
+    padding-left: 6px;
+    padding-bottom: 5px;
 }
 .header-seting {
     flex: 2;
@@ -317,14 +327,14 @@ html , body {
 }
 .div-all-mised {
     display: flex;
-    width: 100px;
+    width: 120px;
     border: 1px solid rgb(51, 122, 183);
 }
 .text-calls-heder {
     width: 95%;
     margin: auto;
     font-weight: bolder;
-    font-size: 24px;
+    font-size: 28px;
 }
 .div-holder-hederCalls {
     display: flex;
@@ -336,11 +346,15 @@ html , body {
     background: rgb(51, 122, 183);
     color: white;
     cursor: pointer;
+    font-size: 13px;
+    padding: 0 6px;
 }
 .Mised-Atcalls {
     width: 100%;
     color: rgb(51, 122, 183);
     cursor: pointer;
+    padding: 0 8px;
+    font-size: 13px;
 }
 .edit-calls {
     color: rgb(51, 122, 183);
@@ -425,11 +439,12 @@ html , body {
     margin: auto;
 }
 .status-text {
-    font-size: x-large;
     font-weight: bolder;
+    font-size: 28px;
 }
 .privacy-status {
     color: rgb(51, 122, 183);
+    font-size: 15px;
 }
 .hold-pht-status {
     height: 65px;
@@ -1014,6 +1029,7 @@ html , body {
 }
 .pading5 {
     padding: 5px;
+    font-size: 18px;
 }
 .newSMS {
     width: 95%;
@@ -1144,8 +1160,139 @@ html , body {
     width: 26px;
     height: 26px;
 }
+.tick-edit {
+    font-weight: 900;
+    color: white;
+    font-size: 17px;
+}
+.span-edit {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #cec3c3;
+    border-radius: 50%;
+    margin: auto 5px;
+    margin-right: 0;
+    z-index: 9999999;
+}
+.done-chats {
+    color: #337ab7;
+    cursor: pointer;
+    font-weight: bold;
+    padding-top: 2px;
+    font-size: 17px;
+    padding-left: 8px;
+}
 
+.newfooter-edit {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    background-color: #dadada;
+    border: 1px solid #cecaca;
+    align-items: center;
+    padding: 0 5px;
+    color: gray;
+    font-size: medium;
+}
+.newfooter-edit span {
+    cursor: pointer;
+}
+.chats-inEdit {
+    word-spacing: -2px;
+    font-size: 30px;
+    padding-left: 4px;
+}
+.chats-mes-inEdit {
+    font-weight: bold;
+    font-size: 20px;
+    display: none;
+    padding: 5px;
+    padding-right: 75px;
 
+}
+.chats-mes-inEdit .count {
+    padding-right: 3px;
+}
+.divContainerDelete {
+    position: absolute;
+    background-color: #0c0c0c24;
+    height: 100%;
+    width: 100%;
+}
+.nrdlt {
+    padding: 0 5px;
+}
+.deleteSelect {
+    height: 40px;
+    border-bottom: 1px solid #e6e6e6;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-weight: 600;
+    font-size: 19px;
+    cursor: pointer;
+}
+.ArchiveDlt {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #337ab7;
+    font-size: 20px;
+    cursor: pointer;
+}
+.hold-dlt-Archive {
+    bottom: 50px;
+    background-color: white;
+    height: auto;
+    width: 98%;
+    margin: auto;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 99999999;
+}
+.Cansel-select {
+    height: 40px;
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 19px;
+    cursor: pointer;
+    color: #337ab7;
+    bottom: 5px;
+    position: absolute;
+    z-index: 99999999999999;
+    background-color: white;
+    border-radius: 10px;
+}
+.deleteSelect:hover , .ArchiveDlt:hover , .Cansel-select:hover {
+    background: #e0e0e0;
+}
+.holdElemnt-select {
+    display: flex;
+    justify-content: center;
+}
+.colorBlu {
+    color: #337ab7;
+}
+.colorWhite {
+    color: white;
+}
+.bck-sms {
+    background: rgb(212, 221, 222);
+}
 /*<!--<div class="holderDivMesages-InChats">-->*/
 /*<!--<div class="mesages-InChats">-->*/
 /*<!--<div class="pading5"> fsdkhjb uhb jbk jlm; k nlknnkn  kn lkn lkn </div>-->*/
