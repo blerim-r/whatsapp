@@ -1,6 +1,7 @@
 var bodyMsg = $('.body');
 var header = $('.header');
 var bodyContainer = $('.body-container');
+var nurmi = 0;
 
 // status event
 bodyMsg.on("click", "#status", function() {
@@ -25,10 +26,53 @@ bodyMsg.on("click", "#status", function() {
     $(".aparat-status").click(function() {
         $("#camera").click();
     });
+    // funksioni i klikimit te pen tek statusi
+    $(".pen-status").click(function () {
+        var element = $(".body");
+        var container = $("<div class='containerText'><span class='x-pen-container'>X</span><span class='T-pen-container'>T</span></div>");
+        var textArea = $("<textarea class='container-textarea'>Type a status</textarea>");
+        var sendbtn = $("<span style=\"display: none\" class=\"spn-btn-pen\"><img src=\"imgs/send-button.svg\" class=\"sendIt-inChats\"></span>");
+        container.append(sendbtn);
+        container.append(textArea);
+        element.append(container);
+
+        $(".x-pen-container").click(function () {
+            $(container).remove();
+        });
+
+        $(".container-textarea").click(function () {
+            $(this).text("");
+            $(this).focus();
+        });
+
+        // Textarea auto
+        $(textArea).on('input', function () {
+            var self = $(this);
+            self.css("color","white");
+            var el = $(this);
+            self.css("height","50px");
+            self.css("padding","0");
+            self.css("top","48%");
+
+            if (el[0].scrollHeight < 100) {
+                el.css("height",+ el[0].scrollHeight + 'px');
+            } else {
+                el.css("height","135px");
+                el.css("top","35%");
+            }
+            if (self.val() === ""){
+                $(sendbtn).css("display","none");
+            }
+
+            if (self.val() !== ""){
+                $(sendbtn).css("display","");
+            }
+
+        });
+
+    });
 });
 
-
-// Story functions
 // Story Animation
 function animateStory(self) {
     $(self).parent().css("background", "grey");
@@ -51,6 +95,7 @@ function animateStory(self) {
     div.show();
     var x1 = Date.now();
     var x2;
+    var imgZoom = $(".imgZoom");
 
     // We show the loading bar
     $(".border-pht-story").animate({
@@ -60,14 +105,14 @@ function animateStory(self) {
     });
 
     // Catch the mouse down event and measure passed seconds, to calculate remaining
-    $(".imgZoom").mousedown(function() {
+    imgZoom.mousedown(function() {
 
         $(".border-pht-story").stop();
         x2 = Date.now();
     });
 
     // Make the animation with remaining seconds
-    $(".imgZoom").mouseup(function() {
+    imgZoom.mouseup(function() {
         var tmpX1 = Date.now();
         $(".border-pht-story").animate({
             width: "320px",
@@ -87,7 +132,7 @@ bodyMsg.on("click", "#calls", function() {
     updateBody(".body-calls-container")
 
     var dc = $("div.body-calls-container");
-    //funksioni ce ben scrool
+
     dc.scroll(function() {
         var pos = dc.scrollTop();
         if (pos == 0) {
@@ -107,7 +152,6 @@ bodyMsg.on("click", "#calls", function() {
         $(".ALL-ATCalls").removeClass("All-callsClick");
         $(".Mised-Atcalls").removeClass("misedCallClick");
 
-        // shfaqim te gjitha bisedad ce kemi folur dhe ato ce kan bo zile
         $("#body-calls .all-calls .divv-name-calls .name-msg").filter(function() {
             $(this).parent().parent().show();
         });
@@ -115,12 +159,12 @@ bodyMsg.on("click", "#calls", function() {
         searchFilter("#body-calls .all-calls .divv-name-calls .name-msg", ".inp-search");
     });
 
-    // cfar ndodh kur klikojme butonin Mised
-    $(".Mised-Atcalls").click(function() {
+   $(".Mised-Atcalls").click(function() {
         $(".Mised-Atcalls").addClass("misedCallClick");
         $(".ALL-ATCalls").addClass("All-callsClick");
 
-        //shfaqim vetem emrat e atyre ce kan ber zile dhe fshehim thirrjet e tjera
+
+        // Show only Missed calls
         $("#body-calls .all-calls .divv-name-calls .name-msg").filter(function() {
             if ($(this).hasClass("cl-red")) {
                 $(this).parent().parent().show();
@@ -153,7 +197,6 @@ bodyMsg.on("click", "#calls", function() {
         });
     });
 
-
 });
 
 
@@ -172,8 +215,7 @@ bodyMsg.on("click", "#camera", function() {
     bdContainer.css("width", "320px");
     bdContainer.css("height", "460px");
 
-    //ktu kapim divin ce mban cameren
-    var cameraDiv = $(".body-container .body-camera-container video, #my_camera")
+var cameraDiv = $(".body-container .body-camera-container video, #my_camera")
     cameraDiv.css("height", "100%");
     cameraDiv.css("width", "100%");
     var container = $(".body-container .body-camera-container");
@@ -261,7 +303,11 @@ bodyMsg.on("click", "#chats", function() {
 
     // Check for reaching the top
     var dc = $("div.body-chats-container");
-    dc.scroll(function() {
+    dc.scroll(function(e) {
+        if ($(".body #header-chats .edit-icon .edit").is(":hidden")){
+            e.preventDefault();
+            return;
+        }
         var pos = dc.scrollTop();
         if (pos == 0) {
             $(".chat").show(300);
@@ -279,9 +325,13 @@ bodyMsg.on("click", "#chats", function() {
     searchFilter("#body-chats .all-sms .hold-name-msg .name-msg", ".inp-search");
 
     // Open message
-    $(".all-sms").click(function() {
-        debugger
-        // fusim ne header , headerin e ri ce kemi te template ne html (headerin pasi kemi hapur mesazhin)
+    $(".all-sms").click(function(e) {
+        // Check if in edit mode
+        if (!$($(this).find(".span-edit")).is(":hidden")){
+            e.preventDefault();
+            return;
+        }
+
         updateHeader('#header-inChats')
         updateBody('.body-InChats')
         updateFooter('.footer-inChats')
@@ -298,6 +348,7 @@ bodyMsg.on("click", "#chats", function() {
         setTimeout(function() {
             $(".body .txtUnderName-inCalls").hide("500");
         }, 2000);
+
 
         // Get messages for this Conversation
         var messages = GLOBAL_MESSAGES[$(this).attr("id")];
@@ -361,9 +412,198 @@ bodyMsg.on("click", "#chats", function() {
             }
         });
 
+        $("#callInSms").click(function () {
+            $(this).parent().parent().find(".hold-photo-mesage-InChats").click();
+        });
+
+        $(".hold-photo-mesage-InChats").click(function () {
+            var element = $(".body");
+            var src = $(this).children().attr('src');
+            var div = $("<div style='display: none' class='inCallsDiv'></div>");
+            var name = $(this).parent().parent().find(".name-msg").text();
+            $(".image-InCalls").attr("src",src);
+            $("#name-InCalls").text(name);
+            element.append(div);
+            div.append($("#afterCalls").outerHTML());
+            div.find("#afterCalls").show();
+            div.show();
+
+            $("#callEnd").click(function () {
+                debugger
+                $(".inCallsDiv").remove();
+            });
+        });
+
     });
 
+$(".edit").click(function () {
+
+        $(this).css("display","none");
+        $(".done-chats").css("display","");
+        $(".span-edit").css("display","");
+        $(".icon").css("display","none");
+        $(".body .chats-mes").css("margin-right","126px");
+        var element = $(".body");
+        var newfooter = $("<div class='newfooter-edit'></div>");
+        var spnArchive = $("<span class='archiveSpas'>Archive</span>");
+        var spnReadAll = $("<span class='readAll-spn'>Read All</span>");
+        var spnRead = $("<span style='display: none' class='readspn'>Read</span>");
+        var spnDelete = $("<span class='deleteSpan'>Delete</span>");
+        newfooter.append(spnArchive);
+        newfooter.append(spnReadAll);
+        newfooter.append(spnRead);
+        newfooter.append(spnDelete);
+        $(".footerr").css("display","none");
+        element.append(newfooter);
+
+        $(".all-sms").click(function (e) {
+            // Check if we are in edit mode
+            if ($($(this).find(".span-edit")).is(":hidden")){
+                e.preventDefault();
+                return;
+            }
+
+            // Deselect Message
+            if ($(this).find(".span-edit").children().hasClass("colorBlu")) {
+
+                // Remove Blue Color
+                $(this).removeClass("bck-sms");
+                $(this).find(".span-edit").children().removeClass("colorBlu");
+                $(".archiveSpas").css("color","");
+                $(".deleteSpan").css("color","");
+                $(".readAll-spn").css("display","");
+                $(".readspn").css("display","none");
+                //Decrease selected messages nr
+                nurmi -- ;
+
+                $(".chats-inEdit .count").text(nurmi);
+                $(".chats-mes-inEdit .count").text(nurmi);
+                var ss = nurmi === 1 ? '' : 's';
+                $(".selected").text("chat" + ss + " selected");
+
+            } else {
+                // Select message
+                $(this).find(".span-edit").children().addClass("colorBlu");
+                $(this).addClass("bck-sms");
+                $(".body #header-chats .chat").css("display","none");
+                $(".archiveSpas").css("color","#337ab7");
+                $(".deleteSpan").css("color","#337ab7");
+                $(".readAll-spn").css("display","none");
+                $(".readspn").css("display","");
+                $(".body .chats-mes").css("display","none");
+                nurmi ++ ;
+                $(".chats-inEdit .count").text(nurmi);
+                $(".chats-mes-inEdit .count").text(nurmi);
+                var ss = nurmi === 1 ? '' : 's';
+                $(".selected").text("chat" + ss + " selected");
+            }
+            if  (nurmi !== 0){
+
+                $(".archiveSpas").css("color","#337ab7");
+                $(".deleteSpan").css("color","#337ab7");
+                $(".readAll-spn").css("display","none");
+                $(".readspn").css("display","");
+                var delSpan = $(".deleteSpan");
+                delSpan.off('click');
+                delSpan.click(function () {
+
+                    var element = $(".body");
+                    var divContainerDelete = $("<div class='divContainerDelete'><div class='holdElemnt-select'><div class='hold-dlt-Archive'><div class='deleteSelect'><span>Delete</span><span class='nrdlt'>1</span><span>Chat</span></div><div class='ArchiveDlt'>Archive</div></div><div class='Cancel-select'>Cancel</div></div></div>");
+                    element.append(divContainerDelete);
+                    $(".nrdlt").text(nurmi);
+
+                    $(".Cancel-select").click(function () {
+                        $(divContainerDelete).remove();
+                    });
+
+                    $(".deleteSelect").click(function () {
+                        $(".bck-sms").remove();
+                        $(divContainerDelete).remove();
+                        $(".chats-inEdit").css("display","none");
+                        $(".chats-mes-inEdit").css("display","none");
+                        $(".done-chats").click();
+                    });
+                });
+
+            }
+
+            // No selected message
+            if (nurmi === 0) {
+                $(".body .chats-inEdit").css("display","none");
+                $(".body .chats-mes-inEdit").css("display","none");
+                $(".body .chat").css("display","");
+                $(".body .chats-mes").css("display","");
+            } else {
+                if ($(".body #header-chats .div-inp").is(":hidden")) {
+                    $(".body .chats-mes-inEdit").css("display","flex");
+                } else {
+                    $(".body .chats-inEdit").css("display","");
+                }
+            }
+
+        });
+
+        var dc =  $("div.body-chats-container");
+        dc.scroll(function(e) {
+            var pos = dc.scrollTop();
+            if (pos === 0) {
+                $(".div-inp").show(300);
+                if (nurmi === 0) {
+                    $(".body .chats-inEdit").css("display","none");
+                    $(".body .chats-mes-inEdit").css("display","none");
+                    $(".body .chat").show(300);
+                    $(".body .chats-mes").hide(300);
+                } else {
+                    $(".body .chat").css("display","none");
+                    $(".body .chats-mes").css("display","none");
+                    $(".body .chats-inEdit").show(300);
+                    $(".body .chats-mes-inEdit").hide(300);
+                }
+            }
+        });
+
+        dc.scroll(function() {
+            var pos = dc.scrollTop();
+            if (pos !== 0) {
+                $(".div-inp").css("display","none");
+                if (nurmi === 0) {
+                    $(".body .chats-inEdit").css("display","none");
+                    $(".body .chats-mes-inEdit").css("display","none");
+                    $(".body .chat").hide(300);
+                    $(".body .chats-mes").show();
+                } else {
+                    $(".body .chats-inEdit").hide(300);
+                    $(".body .chats-mes-inEdit").show(300);
+                    $(".body .chat").css("display","none");
+                    $(".body .chats-mes").css("display","none");
+                }
+            }
+        });
+    });
+
+    $(".done-chats").click(function () {
+        var editSpan = $(".span-edit");
+        editSpan.parent().removeClass("bck-sms");
+        editSpan.children().removeClass("colorBlu");
+        $(".newfooter-edit").remove();
+        $(".footerr").css("display","");
+        $(".done-chats").css("display","none");
+        $(".edit").css("display","");
+        editSpan.css("display","none");
+        $(".icon").css("display","");
+        $(".body .chats-mes").css("margin-right","0");
+        $(".body .chats-mes").css("display","");
+        $(".body .chat").css("display","");
+        $(".body .chats-inEdit").css("display","none");
+        $(".body .chats-mes-inEdit").css("display","none");
+
+        nurmi = 0;
+        $(".chats-inEdit .count").text(nurmi);
+        $(".chats-mes-inEdit .count").text(nurmi);
+        $("#chats").click();
+    });
 });
+
 
 // Send message function
 function sendMessage() {
@@ -424,7 +664,20 @@ bodyMsg.on("click", "#setting", function() {
     });
 });
 
-
+// ky funksion nderron foton e profilit te setting
+function renderImage(file) {
+    if (typeof file === 'undefined') {
+        alert("No File Chosen");
+        return;
+    }
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function (event) {
+        the_url = event.target.result;
+        var image = $("#profImage");
+        image.attr("src",the_url);
+    }
+}
 // jQuery Prototype to get element including itself
 jQuery.fn.outerHTML = function() {
     return jQuery('<div />').append(this.eq(0).clone()).html();
