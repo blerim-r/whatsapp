@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="wtsp.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
-
+    <!--<script src="node_modules/moment/min/moment.min.js" ></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js" ></script>
     <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,10 +15,11 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
 </head>
 <body>
-    <div class="body" style="display: none">
+<!--main body template-->
+    <div class="body" >
         <div class="header">
         </div>
-        <div class="containerr">
+        <div class="body-container">
         </div>
         <div class="footerr">
             <div id="status" class="div-el-footer"><i class="glyphicon glyphicon-record pht-seting"></i><p class="text-footer">Status</p></div>
@@ -28,19 +30,24 @@
         </div>
     </div>
 
-
-
-
-
-    <!--Messages -->
+    <!--MESSAGES -->
         <!--Header-->
-        <div id="header-chats"  style="display: none">
+        <div id="header-chats" style="display: none">
             <div class="edit-icon">
+                <span style="display: none" class="done-chats">Done</span>
                 <span class="edit"><small>Edit</small></span>
                 <span class="chats-mes">Chats</span>
-                <span class="glyphicon glyphicon-edit icon"></span>
+                <div class="chats-mes-inEdit" >
+                    <span class="count">0</span>
+                    <span class="selected">Chats Selected</span>
+                </div>
+                <span class="glyphicon glyphicon-edit icon pading5"></span>
             </div>
             <div class="chat">Chats</div>
+            <div class="chats-inEdit" style="display: none" >
+                <span class="count">0</span>
+                <span class="selected">Chats Selected</span>
+            </div>
             <div class="inner-addon left-addon div-inp">
                 <i class="glyphicon glyphicon-search icon-search-inpt"></i>
                 <input  type="text" placeholder="Search" class="form-control inp-search">
@@ -49,22 +56,25 @@
         <!-- BODY -->
     <div class="body-chats-container" style="display: none">
         <div id="body-chats">
-            <div class="all-sms">
+            <div id="jobhn-smith" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://www.istockphoto.com/resources/images/PhotoFTLP/img_63351521.jpg"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">Bilbil</span>
-                    <span>mesage</span>
+                    <span class="name-msg">John Smith</span>
+                    <span>lorem ipsum dolor sit...</span>
                 </div>
                 <div class="div-time">
                     <div class="time">Time</div>
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="lacie-mae-cash" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="http://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">Sabri</span>
-                    <span>mesage</span>
+                    <span class="name-msg">Lacie-Mae Cash</span>
+                    <span>Lorem ipsum dolor sit...</span>
+
                 </div>
                 <div class="div-time">
                     <div class="time">Time</div>
@@ -72,10 +82,11 @@
                 </div>
 
             </div>
-            <div class="all-sms">
+            <div id="carly-orozco" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">Ardit</span>
+                    <span class="name-msg">Carly Orozco</span>
                     <span>mesage</span>
                 </div>
                 <div class="div-time">
@@ -83,10 +94,11 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="saniya-mckinney" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://ak4.picdn.net/shutterstock/videos/20197684/thumb/1.jpg?i10c=img.resize(height:160)"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">Toni</span>
+                    <span class="name-msg">Saniya Mckinney</span>
                     <span>mesage</span>
                 </div>
                 <div class="div-time">
@@ -94,10 +106,11 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="katya-nielsen" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="http://taguephoto.com/wp-content/uploads/2016/01/Ruffwear_Man_and_Dog_Sunset.jpg"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">+355698682009</span>
+                    <span class="name-msg">Katya Nielsen</span>
                     <span>mesage</span>
                 </div>
                 <div class="div-time">
@@ -105,10 +118,11 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="harleigh-shannon" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">Flor Mhilli</span>
+                    <span class="name-msg">Harleigh Shannon</span>
                     <span>mesage</span>
                 </div>
                 <div class="div-time">
@@ -116,10 +130,11 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="briana-gutierrez" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOY5xUgJ92IpjvOzlR3k2Z7RKuD5bWd0anPVvb_2uEty_SgCjV"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">Reno Wtsp</span>
+                    <span class="name-msg">Briana Gutierrez</span>
                     <span>mesage</span>
                 </div>
                 <div class="div-time">
@@ -127,10 +142,11 @@
                     <div class="glyphicon glyphicon-chevron-right shigjete-left"></div>
                 </div>
             </div>
-            <div class="all-sms">
+            <div id="christy-lin" class="all-sms">
+                <span style="display: none" class="span-edit"><i class="fas fa-check tick-edit"></i></span>
                 <div class="hold-photo-msg"><img class="photo-msg" src="https://www.newyorkcomputerhelp.com/wp-content/uploads/2017/04/best-way-to-protect-computer-hacker.jpg"></div>
                 <div class="hold-name-msg">
-                    <span class="name-msg">Jurgeni</span>
+                    <span class="name-msg">Christy Lin</span>
                     <span>mesage</span>
                 </div>
                 <div class="div-time">
@@ -142,9 +158,59 @@
     </div>
 
 
+    <!--INMESSAGE-->
+    <!--header-->
+        <div id="header-inChats" style="display: none">
+            <div class="headerrr-Inchats">
+                <i id="backPreveus" style="cursor: pointer" class="fas fa-chevron-left iconPreviuos-inChats"></i>
+                <div class="hold-photo-mesage-InChats">
+                    <img class="img-msg-inCalls" src="">
+                </div>
+                <div class="hold-data_InCalls">
+                    <span class="name-msg"></span>
+                    <span class="txtUnderName-inCalls">tap here for contact info</span>
+                </div>
+                <div class="holdVideoCall-inCalls">
+                    <i class="fas fa-video"></i>
+                    <span id="callInSms" style="color: rgb(51, 122, 183)" class="glyphicon spn-icon-call">&#xe182;</span>
+                </div>
+            </div>
+        </div>
+    <!--Body-->
+        <div class="body-InChats" style="display: none">
+            <div class="holdMessages-inChats">
+
+            </div>
+        </div>
+    <!--footer-->
+        <div class="footer-inChats" style="display: none ; flex: 1">
+            <div class="hold-icons-FooterInChats">
+                <div class="hold-icons-FooterInChats">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <div class="holdInputINchats">
+                        <textarea class="textareaFooter-InChats" type="text"></textarea>
+                        <i class="far fa-sticky-note textareaIconright"></i>
+                    </div>
+                    <i id="cameraInchats" class="fas fa-camera camera-inchatcs"></i>
+                    <i class="fas fa-microphone mikrofon-inchats"></i>
+                    <span style="display: none" class="send-msg-inChats"><img src="imgs/send-button.svg" class="sendIt-inChats"></span>
+                </div>
+            </div>
+        </div>
+
+    <div class="footer-template" style="display: none">
+        <div id="status" class="div-el-footer"><i class="glyphicon glyphicon-record pht-seting"></i><p class="text-footer">Status</p></div>
+        <div id="calls" class="div-el-footer"><i class="glyphicon glyphicon-earphone pht-seting"></i><p class="text-footer">Calls</p></div>
+        <div id="camera" class="div-el-footer"><i class="glyphicon glyphicon-camera pht-seting"></i><p class="text-footer">Camera</p></div>
+        <div id="chats" class="div-el-footer"><i class='fas fa-comments pht-seting'></i><p class="text-footer">Chats</p></div>
+        <div id="setting" class="div-el-footer"><i class="glyphicon glyphicon-cog pht-seting"></i><p class="text-footer">Settings</p></div>
+    </div>
 
 
-    <!--Settings-->
+
+
+
+    <!--SETTINGS-->
         <!--Header-->
         <div id="header-settings"  class="div-header-seting-css" style="display: none!important;">
                 <span class="seting">Settings</span>
@@ -156,7 +222,10 @@
         <div class="tame-grey"></div>
         <div class="hold-pht-seting">
             <div class="div-pht-seting">
-                <img class="img-seting" src="https://scontent.ftia3-1.fna.fbcdn.net/v/t1.0-9/12009789_866775886740838_1865695940545155546_n.jpg?_nc_cat=101&_nc_ht=scontent.ftia3-1.fna&oh=dea3087064fd5d028f01d6e68fe9c00e&oe=5C98101C">
+                <img  onclick="document.getElementById('file-photo').click()"  class="img-seting" id="profImage" src="https://scontent.ftia3-1.fna.fbcdn.net/v/t1.0-9/12009789_866775886740838_1865695940545155546_n.jpg?_nc_cat=101&_nc_ht=scontent.ftia3-1.fna&oh=dea3087064fd5d028f01d6e68fe9c00e&oe=5C98101C">
+            </div>
+            <div class="div-input">
+                <input class="input-file-setting" onchange="renderImage(this.files[0])" type="file" id="file-photo" accept="image/*">
             </div>
             <div class="sts-seting">
                 <div style="color: black">.</div>
@@ -293,7 +362,7 @@
 
 
 
-    <!-- Calls -->
+    <!-- CALLS -->
         <!--Header-->
     <div id="header-calls" style="display: none">
         <div>
@@ -320,10 +389,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="https://www.istockphoto.com/resources/images/PhotoFTLP/img_63351521.jpg"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">Bilbil</span>
+                <span class="name-msg cl-red">Briana Gutierrez (2)</span>
                 <div>
                     <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <span>missed</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -337,10 +406,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="http://images.unsplash.com/photo-1531804055935-76f44d7c3621?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">Sabri</span>
+                <span class="name-msg">Saniya Mckinney</span>
                 <div>
                     <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <span>incoming</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -354,10 +423,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">Ardit</span>
+                <span class="name-msg">Katya Nielsen (2)</span>
                 <div>
-                    <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <i class="fas fa-video spn-icon-call"></i>
+                    <span>outgoing</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -371,10 +440,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="https://ak4.picdn.net/shutterstock/videos/20197684/thumb/1.jpg?i10c=img.resize(height:160)"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">Toni</span>
+                <span class="name-msg cl-red">Christy Lin</span>
                 <div>
                     <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <span>missed</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -388,10 +457,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="http://taguephoto.com/wp-content/uploads/2016/01/Ruffwear_Man_and_Dog_Sunset.jpg"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">+355698682009</span>
+                <span class="name-msg">Harleigh Shannon</span>
                 <div>
-                    <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <i class="fas fa-video spn-icon-call"></i>
+                    <span>outgoing</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -405,10 +474,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="https://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">Flor Mhilli</span>
+                <span class="name-msg cl-red">Lacie-Mae Cash (2)</span>
                 <div>
                     <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <span>missed</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -422,10 +491,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOY5xUgJ92IpjvOzlR3k2Z7RKuD5bWd0anPVvb_2uEty_SgCjV"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">Renaldo</span>
+                <span class="name-msg">Carly Orozco</span>
                 <div>
                     <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <span>incoming</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -439,10 +508,10 @@
         <div class="all-calls">
             <div class="hold-pht-calls"><img class="calls-photo" src="https://www.newyorkcomputerhelp.com/wp-content/uploads/2017/04/best-way-to-protect-computer-hacker.jpg"></div>
             <div class="divv-name-calls">
-                <span class="name-msg">Jurgen</span>
+                <span class="name-msg cl-red">John Smith</span>
                 <div>
                     <span class="glyphicon spn-icon-call">&#xe182;</span>
-                    <span>mesage</span>
+                    <span>missed</span>
                 </div>
             </div>
             <div class="time-calls">
@@ -454,14 +523,67 @@
         </div>
     </div>
     </div>
+    <!--div-after-Calls-->
+    <div class="after-calls-ss" id="afterCalls" style="display: none">
+        <div class="top-inCalls">
+            <div class="icon-left-inCalls">
+                <i style="cursor: pointer" class="fas fa-chevron-left"></i>
+            </div>
+            <div class="txt-inCalls">
+                <i style="padding-right: 5px" class="fab fa-whatsapp"></i>
+                <span>WHATSAPP VOICE CALL</span>
+            </div>
+            <div class="div-icon-right-inCalls">
+                <div class="holder-iconRight-inCalls">
+                    <i class="fas fa-user inCallsUser"></i>
+                </div>
+                <span class="glyphicon glyphicon-plus-sign inCallsPlus"></span>
+            </div>
+        </div>
+        <div class="middle-div-inCalls">
+            <div id="name-InCalls"></div>
+            <div id="number-InCalls">Calling</div>
+            <div class="divPht-inCalls">
+                <div class="hold-photo-InCalls">
+                        <img class="image-InCalls" src="">
+                </div>
+            </div>
+        </div>
+        <div class="div-bottom-icons">
+            <div style="padding-left: 20px">
+               <div class="background-radius-icons">
+                   <i class="fas fa-volume-up"></i>
+               </div>
+                <div class="text-under-icons">speaker</div>
+            </div>
+            <div>
+                <div class="background-radius-icons">
+                    <i class="fas fa-video icon-video-disable"></i>
+                </div>
+                <div style="color: #9e9e9e" class="text-under-icons">video call</div>
+            </div>
+            <div style="padding-right: 20px">
+                <div class="background-radius-icons">
+                    <i class="fas fa-microphone-slash"></i>
+                </div>
+                <div class="text-under-icons">mute</div>
+            </div>
+        </div>
+        <div class="hold-callEnd">
+            <div id="callEnd">
+                <i class="fas fa-phone callEndIcon"></i>
+            </div>
+        </div>
+    </div>
 
 
 
-    <!--Status-->
+
+    <!--STATUS-->
         <!--Header-->
     <div id="header-status" style="display: none">
         <div class="holder-header-status">
-            <div>
+            <div style="padding-top: 2px">
                 <span class="privacy-status">Privacy</span>
             </div>
             <div class="status-text">
@@ -477,11 +599,7 @@
         <!--Body-->
     <div class="body-status-container" style="display: none">
         <div id="body-status">
-
-
             <div class="tame-grey"></div>
-
-
             <div class="hold-pht-status">
                 <div class="div-pht-status">
                     <img class="img-status" src="https://scontent.ftia3-1.fna.fbcdn.net/v/t1.0-9/12009789_866775886740838_1865695940545155546_n.jpg?_nc_cat=101&_nc_ht=scontent.ftia3-1.fna&oh=dea3087064fd5d028f01d6e68fe9c00e&oe=5C98101C">
@@ -501,14 +619,11 @@
                 </div>
             </div>
 
-
             <div class="grey-medium">RECENT UPDATES</div>
-
-
             <div class="story-all">
-                <div class="hold-photo-story"><div class="back-div-pht-story"><img class="photo-story" src="https://www.istockphoto.com/resources/images/PhotoFTLP/img_63351521.jpg"></div></div>
+                <div class="hold-photo-story"><div class="back-div-pht-story"><img onclick="animateStory(this)" class="photo-story" src="https://www.istockphoto.com/resources/images/PhotoFTLP/img_63351521.jpg"></div></div>
                 <div class="divv-name-calls">
-                    <span class="name-msg">Bilbil</span>
+                    <span class="name-msg">John Smith</span>
                     <div>
                         <span id="Time">19h ago</span>
                     </div>
@@ -516,9 +631,9 @@
             </div>
 
             <div class="story-all">
-                <div class="hold-photo-story"><div class="back-div-pht-story"><img class="photo-story" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOY5xUgJ92IpjvOzlR3k2Z7RKuD5bWd0anPVvb_2uEty_SgCjV"></div></div>
+                <div class="hold-photo-story"><div class="back-div-pht-story"><img onclick="animateStory(this)" class="photo-story" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOY5xUgJ92IpjvOzlR3k2Z7RKuD5bWd0anPVvb_2uEty_SgCjV"></div></div>
                 <div class="divv-name-calls">
-                    <span class="name-msg">Renaldo</span>
+                    <span class="name-msg">Carly Orozco</span>
                     <div>
                         <span id="Time">23h ago</span>
                     </div>
@@ -526,9 +641,9 @@
             </div>
 
             <div class="story-all">
-                <div class="hold-photo-story"><div class="back-div-pht-story"><img class="photo-story" src="https://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"></div></div>
+                <div class="hold-photo-story"><div class="back-div-pht-story"><img onclick="animateStory(this)" class="photo-story" src="https://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg"></div></div>
                 <div class="divv-name-calls">
-                    <span class="name-msg">Flor Mhilli</span>
+                    <span class="name-msg">Katya Nielsen</span>
                     <div>
                         <span id="Time">11h ago</span>
                     </div>
@@ -536,9 +651,9 @@
             </div>
 
             <div class="story-all">
-                <div class="hold-photo-story"><div class="back-div-pht-story"><img class="photo-story" src="https://www.newyorkcomputerhelp.com/wp-content/uploads/2017/04/best-way-to-protect-computer-hacker.jpg"></div></div>
+                <div class="hold-photo-story"><div class="back-div-pht-story"><img onclick="animateStory(this)" class="photo-story" src="https://www.newyorkcomputerhelp.com/wp-content/uploads/2017/04/best-way-to-protect-computer-hacker.jpg"></div></div>
                 <div class="divv-name-calls">
-                    <span class="name-msg">Jurgeni</span>
+                    <span class="name-msg">Harleigh Shannon</span>
                     <div>
                         <span id="Time">01:23</span>
                     </div>
@@ -572,11 +687,11 @@
 
 
 
-    <!--Camera-->
+
+    <!--CAMERA-->
         <!--Body-->
     <div class="body-camera-container" style="display: none">
         <div id="body-camera">
-
             <span id="xCamera">X</span>
             <span class="glyphicon glyphicon-flash Lighting"></span>
             <div class="paginationnn">
@@ -594,14 +709,14 @@
             </div>
             <div id="my_camera" style="width:100%; height: 100%;"></div>
             <div id="my_result"></div>
-
         </div>
     </div>
 
 
+    <script src="helpers.js"></script>
+    <script src="messages.js"></script>
     <script src="webcam.js"></script>
     <script src="wtsp.js"></script>
-
 </body>
 </html>
 
