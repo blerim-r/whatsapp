@@ -1,4 +1,4 @@
-# whatsapp
+# Whatsapp
 Web bassed whatsapp aplication.
 # Status Page <br>
 ![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/master/imgs/status.png)
