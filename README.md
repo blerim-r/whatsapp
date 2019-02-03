@@ -7,6 +7,10 @@ Web bassed whatsapp aplication.
 
 ![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/dev/imgs/Calls.png)
 
+![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/master/imgs/Inmessage.png)
+
+![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/master/imgs/Incall.png)
+
 ![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/dev/imgs/Chats.png)
 
 ![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/dev/imgs/Setting.png)
