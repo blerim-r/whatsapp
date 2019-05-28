@@ -22,7 +22,7 @@ Web bassed whatsapp aplication.
 ![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/dev/imgs/Setting.png)
 <br>
 
-* [Codepen demo](https://codepen.io/brexhmati/full/RvGWJr)
+* [Codepen demo](https://codepen.io/blerim-r/full/RvGWJr)
 
 
 ## Main features
