@@ -1,25 +1,25 @@
 # Whatsapp
 Web bassed whatsapp aplication.
 # Status Page <br>
-![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/master/imgs/status.png)
+![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/master/imgs/status.png)
 <br>
 # Story Page <br>
-![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/dev/imgs/story.png)
+![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/dev/imgs/story.png)
 <br>
 # Call Page <br>
-![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/dev/imgs/Calls.png)
+![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/dev/imgs/Calls.png)
 <br>
 # Single message Page <br>
-![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/master/imgs/Inmessage.png)
+![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/master/imgs/Inmessage.png)
 <br>
 # Single call Page <br>
-![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/master/imgs/Incall.png)
+![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/master/imgs/Incall.png)
 <br>
 # Chat Page <br>
-![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/dev/imgs/Chats.png)
+![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/dev/imgs/Chats.png)
 <br>
 # Setting Page <br>
-![lightgallery](https://raw.githubusercontent.com/bRexhmati/whatsapp/dev/imgs/Setting.png)
+![lightgallery](https://raw.githubusercontent.com/blerim-r/whatsapp/dev/imgs/Setting.png)
 <br>
 
 * [Codepen demo](https://codepen.io/brexhmati/full/RvGWJr)
